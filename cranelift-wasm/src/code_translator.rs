@@ -1048,8 +1048,8 @@ pub fn translate_operator<FE: FuncEnvironment + ?Sized>(
         | Operator::F32x4ConvertUI32x4
         | Operator::F64x2ConvertSI64x2
         | Operator::F64x2ConvertUI64x2
-        | Operator::V8x16Shuffle1
-        | Operator::V8x16Shuffle2Imm { .. } => {
+        | Operator::V8x16Swizzle
+        | Operator::V8x16ShuffleImm { .. } => {
             return Err(WasmError::Unsupported("proposed SIMD operators"));
         }
     };
