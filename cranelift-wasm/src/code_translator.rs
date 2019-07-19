@@ -911,7 +911,6 @@ pub fn translate_operator<FE: FuncEnvironment + ?Sized>(
         Operator::V128Load { .. }
         | Operator::V128Store { .. }
         | Operator::V128Const { .. }
-        | Operator::V8x16Shuffle { .. }
         | Operator::I8x16Splat
         | Operator::I8x16ExtractLaneS { .. }
         | Operator::I8x16ExtractLaneU { .. }
@@ -1049,7 +1048,11 @@ pub fn translate_operator<FE: FuncEnvironment + ?Sized>(
         | Operator::F64x2ConvertSI64x2
         | Operator::F64x2ConvertUI64x2
         | Operator::V8x16Swizzle
-        | Operator::V8x16ShuffleImm { .. } => {
+        | Operator::V8x16Shuffle { .. }
+        | Operator::I8x16LoadSplat { .. }
+        | Operator::I16x8LoadSplat { .. }
+        | Operator::I32x4LoadSplat { .. }
+        | Operator::I64x2LoadSplat { .. } => {
             return Err(WasmError::Unsupported("proposed SIMD operators"));
         }
     };
