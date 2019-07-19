@@ -28,7 +28,8 @@ fn main() {
     ctx.func.signature = sig_a;
     ctx.func.name = ExternalName::user(0, func_a.as_u32());
     {
-        let mut bcx: FunctionBuilder = FunctionBuilder::new(&mut ctx.func, &mut func_ctx, &mut position);
+        let mut bcx: FunctionBuilder =
+            FunctionBuilder::new(&mut ctx.func, &mut func_ctx, &mut position);
         let ebb = bcx.create_ebb();
 
         bcx.switch_to_block(ebb);
@@ -46,7 +47,8 @@ fn main() {
     ctx.func.signature = sig_b;
     ctx.func.name = ExternalName::user(0, func_b.as_u32());
     {
-        let mut bcx: FunctionBuilder = FunctionBuilder::new(&mut ctx.func, &mut func_ctx, &mut position);
+        let mut bcx: FunctionBuilder =
+            FunctionBuilder::new(&mut ctx.func, &mut func_ctx, &mut position);
         let ebb = bcx.create_ebb();
 
         bcx.switch_to_block(ebb);
